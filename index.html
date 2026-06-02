@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogram</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./img/fav_icon.svg" />
+
+</head>
+
+<body>
+    <header>
+        <div class="fotogram_logo">
+            <img src="./img/logo.svg" alt="logo">
+            <img src="./img/logo_text.svg" alt="title_logo">
+        </div>
+
+    </header>
+
+    <section class="main_section">
+        <div class="headline">
+            <h1>Miles & Memories</h1>
+        </div>
+
+        <div class="gallery">
+            
+            <div class="first_row">
+                <ul>
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_alpenüberquerung"
+                        onclick="openDialog(); renderFiltered(1)">
+                        <img class="album" src="./img/Rad.jpeg" alt="Alpenüberquerung_Gardasee_2024">
+                    </button>
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_tansania"
+                        onclick="openDialog(); renderFiltered(2)">
+                        <img class="album" src="./img/Tansania.jpeg" alt="Tansania_2024">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_laRéunion"
+                        onclick="openDialog(); renderFiltered(3)">
+                        <img class="album" src="./img/LaReunion.jpeg" alt="LaRéunion_2024">
+                    </button>
+
+                    <!--first try to open dialog frame with pictures-->
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_patagonia"
+                        onclick="openDialog(); renderFiltered(4)">
+                        <img class="album" src="./img/Patagonien.jpeg" alt="Patagonien_2025">
+                    </button>
+
+                    <dialog id="dialog" aria-labelledby="dialogTitle"> <!--aria-describedby="dialogDescr">-->
+                        <section class="header_dialog">
+                            <h2 id="dialogTitle">Albumtitel</h2>
+                            <button aria-label="close dialog" onclick="closeDialog()">
+                                <img class="close_icon" src="./img/Close icon.svg" alt="close_icon">
+                            </button>
+                        </section>
+
+                        <section>
+                            
+                            <img class="album_open" id="dialogIMG" src="" alt="greaterViewOfPictures">
+                            
+                        </section>
+
+                        <footer class="footer_dialog">
+                            <button type="button" aria-label="dialog backward" onclick="goBack()"><img class="arrow_icon"
+                                    src="./img/button_backward.png" alt="close_icon"></button>
+                            <p id="amountPics"></p>
+                            <button type="button" aria-label="dialog forward" onclick="goForward()"><img class="arrow_icon"
+                                    src="./img/button_forward.png" alt="close_icon"></button>
+
+                        </footer>
+                    </dialog>
+
+                    <!--end first try to open dialog frame with pictures-->
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_antarktis"
+                        onclick="openDialog(); renderFiltered(5)">
+                        <img class="album" src="./img/Antarktis.jpeg" alt="Antarktis_2025">
+                    </button>
+
+                </ul>
+            </div>
+
+            <div class="second_row">
+                <ul>
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_argentinien"
+                        onclick="openDialog(); renderFiltered(6)">
+                        <img class="album" src="./img/Argentina.jpeg" alt="Argentinien_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_brasilien"
+                        onclick="openDialog(); renderFiltered(7)">
+                        <img class="album" src="./img/Rio.jpeg" alt="Brasilien_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_galapagos"
+                        onclick="openDialog(); renderFiltered(8)">
+                        <img class="album" src="./img/Galapagos.jpeg" alt="Galapagos_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_atacama"
+                        onclick="openDialog(); renderFiltered(9)">
+                        <img class="album" src="./img/Salar de Uyuni.jpeg" alt="Atacama_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_bolivien"
+                        onclick="openDialog(); renderFiltered(10)">
+                        <img class="album" src="./img/Bolivien.jpeg" alt="Bolivien_2025">
+                    </button>
+                </ul>
+            </div>
+
+            <div class="third_row">
+                <ul>
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_peru"
+                        onclick="openDialog(); renderFiltered(11)">
+                        <img class="album" src="./img/Peru.jpeg" alt="Peru_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_panama"
+                        onclick="openDialog(); renderFiltered(12)">
+                        <img class="album" src="./img/Panama.jpeg" alt="Panama_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_taiwan"
+                        onclick="openDialog(); renderFiltered(13)">
+                        <img class="album" src="./img/Taiwan.jpeg" alt="Taiwan_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_kanaren"
+                        onclick="openDialog(); renderFiltered(14)">
+                        <img class="album" src="./img/final/IMG_6853.jpeg" alt="Kanaren_2025">
+                    </button>
+
+                    <button class="photo_button" aria-haspopup="dialog" aria-controls="dialog_marokko"
+                        onclick="openDialog(); renderFiltered(15)">
+                        <img class="album" src="./img/Marokko.jpg" alt="Marokko_2026">
+                    </button>
+                </ul>
+            </div>
+
+
+        </div>
+    </section>
+
+    <footer>
+        <img src="./img/footer_logo.svg" alt="DA_Logo">
+
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
