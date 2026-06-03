@@ -378,8 +378,6 @@ const dialogIMG = document.getElementById("dialogIMG");
 const amountPictures = document.getElementById("amountPics");
 
 function render() {
-    /*let contentRef = document.getElementById("dialog");
-    dialogIMG = currentPictures[0];*/
     
     if (currentPictures.length > 0) {
         dialogIMG.src = "img/final/" + currentPictures[currentIndex];
@@ -391,22 +389,6 @@ function render() {
 
     }
 }
-
-//old stuff:
-/*contentRef.innerHTML = ""; //empties array at the beginning of for-loop
-for (let index=0; index < currentPictures.length; index++){
-
-    contentRef.innerHTML += myImgsPatagonia;
-    //getNoteTemplate(index, currentPictures);
-
-}
-}
-
-function getNoteTemplate(index){
-return `
-`
-}*/
-
 
 //function to close dialog
 function closeDialog() {
@@ -435,14 +417,6 @@ dialog.addEventListener('click', (event) => {
   }
 });
 
-//old version to close dialog if clicked on background, but didn't work because of padding
-  /*
-  dialog.addEventListener('click', (event) => {
-  if (event.target === dialog){
-
-    closeDialog();}
-    //event.stopPropagation();
-});*/
 
 //closes dialog when escape is pressed:
 dialog.addEventListener('close', () => {
