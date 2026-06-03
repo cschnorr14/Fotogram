@@ -245,9 +245,6 @@ const dialogRef = document.getElementById("dialog");
 function openDialog() {
     dialogRef.showModal();
     dialogRef.classList.add("opened");
-    //renderFiltered(i); = Option 2 -> wrapper function, but how is it defined depending on album?
-    //renderFiltered is triggered via onclick together with openDialog()
-    /*dialogRef.stopPropagation();*/
 }
 
 //function to decide which pictures are rendered in dialog
