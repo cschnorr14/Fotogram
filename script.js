@@ -231,7 +231,7 @@ const albumTitle = [
     "Argentinien",
     "Rio de Janeiro",
     "Galapagos",
-    "Atacama & Salar de Uyuni",
+    "Atacama",
     "Bolivien",
     "Peru",
     "Panama",
@@ -240,162 +240,92 @@ const albumTitle = [
     "Marokko"
 ];
 
-//function to open dialog
-const dialogRef = document.getElementById("dialog");
-function openDialog() {
-    dialogRef.showModal();
-    dialogRef.classList.add("opened");
-}
+//added after first feedback to make it dynamic
+const allPictures = [
+    myImgsBike, myImgsTanzania, myImgsLaReunion, myImgsPatagonia, myImgsAntarctica,
+    myImgsArgentina, myImgsBrasil, myImgsGalapagos, myImgsAtacama, myImgsBolivia,
+    myImgsPeru, myImgsPanama, myImgsTaiwan, myImgsKanaren, myImgsMarokko
+];
 
-//function to decide which pictures are rendered in dialog
-let currentPictures = []; //empty array -> to be filled with selected album
+//base states at beginning
+let currentPictures = []; //empty array to be filled with selected album
 
 let currentIndex = 0; //indicates which picture is recently shown
 
-let currentTitle = []; //empty array -> to be filled with album titles
+const dialogRef = document.getElementById("dialog");
 
 const nameAlbumTitle = document.getElementById("dialogTitle");
 
-
-function renderFiltered(i) {
-    if (i == 1) {
-        currentPictures = myImgsBike;
-        currentTitle = albumTitle[0];   //adding title to photo album
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 2) {
-        currentPictures = myImgsTanzania;
-        currentTitle = albumTitle[1];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 3) {
-        currentPictures = myImgsLaReunion;
-        currentTitle = albumTitle[2];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-    
-    if (i == 4) {
-        currentPictures = myImgsPatagonia;
-        currentTitle = albumTitle[3];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-
-    }
-
-    if (i == 5) {
-        currentPictures = myImgsAntarctica;
-        currentTitle = albumTitle[4];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 6) {
-        currentPictures = myImgsArgentina;
-        currentTitle = albumTitle[5];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 7) {
-        currentPictures = myImgsBrasil;
-        currentTitle = albumTitle[6];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 8) {
-        currentPictures = myImgsGalapagos;
-        currentTitle = albumTitle[7];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 9) {
-        currentPictures = myImgsAtacama;
-        currentTitle = albumTitle[8];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 10) {
-        currentPictures = myImgsBolivia;
-        currentTitle = albumTitle[9];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 11) {
-        currentPictures = myImgsPeru;
-        currentTitle = albumTitle[10];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 12) {
-        currentPictures = myImgsPanama;
-        currentTitle = albumTitle[11];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 13) {
-        currentPictures = myImgsTaiwan;
-        currentTitle = albumTitle[12];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 14) {
-        currentPictures = myImgsKanaren;
-        currentTitle = albumTitle[13];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    if (i == 15) {
-        currentPictures = myImgsMarokko;
-        currentTitle = albumTitle[14];
-        nameAlbumTitle.innerHTML = `${currentTitle}`;
-
-    }
-
-    currentIndex = 0; 
-    render();
-}
-
-
-//function to load pictures of a certain album/array into dialog
 const dialogIMG = document.getElementById("dialogIMG");
 
 const amountPictures = document.getElementById("amountPics");
 
-function render() {
+
+
+//to dynamically render index-page
+function renderGallery() {
+    const container = document.getElementById('gallery-container');
+    if (!container) return;
     
-    if (currentPictures.length > 0) {
-        dialogIMG.src = "img/final/" + currentPictures[currentIndex];
-
-        //adapt picture number
-        const currentPicNumber = currentIndex + 1;
-        const totalPicNumber = currentPictures.length;
-        amountPictures.innerHTML = `${currentPicNumber} / ${totalPicNumber}`;
-
+    let htmlContent = "";
+    
+    // going through all albums
+    for (let i = 0; i < allPictures.length; i++) {
+        const currentAlbum = allPictures[i];
+        // first pic of each album is used as cover
+        const coverBild = currentAlbum[0]; 
+        const titel = albumTitle[i];
+        
+        htmlContent += `
+            <button class="photo_button" 
+                    aria-haspopup="dialog" 
+                    aria-controls="dialog"
+                    onclick="openDialog(); renderFiltered(${i})">
+                <img class="album" src="./img/final/${coverBild}" alt="${titel}">
+            </button>
+        `;
     }
+    
+    container.innerHTML = htmlContent;
+}
+
+// to find the correct album (without all the previous if-statements)
+function renderFiltered(index) {
+    currentPictures = allPictures[index]; // according pic-array
+    nameAlbumTitle.innerHTML = albumTitle[index]; // according title
+    currentIndex = 0; 
+    render(); 
+}
+
+
+//function to open dialog
+function openDialog() {
+    dialogRef.showModal();
+    dialogRef.classList.add("opened");
+    document.body.classList.add("no-scroll"); /*added after first feedback to block scrolling while dialog is opened*/
+    
 }
 
 //function to close dialog
 function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove("opened");
+    document.body.classList.remove("no-scroll"); /*added after first feedback to "unblock" scrolling*/
+   
 }
 
 
-//closes dialog if clicked on background:
+//function to load pictures of a certain album/array into dialog
+function render() {
+    if (currentPictures.length > 0) {
+        dialogIMG.src = `./img/final/${currentPictures[currentIndex]}`;
+        dialogIMG.alt = currentPictures[currentIndex];
+        amountPictures.innerHTML = `${currentIndex + 1} / ${currentPictures.length}`;
+    }
+}
 
+
+//closes dialog if clicked on background (online research):
 dialog.addEventListener('click', (event) => {
      const rect = dialog.getBoundingClientRect(); //measures exact size of dialog by saving the x/y-coordinates of the 4 dialog edges in pixel
     //rect.left & rect.right = where left edge starts & right edge of dialog box ends
@@ -412,6 +342,7 @@ dialog.addEventListener('click', (event) => {
   if(!isInDialog){
     closeDialog();
   }
+
 });
 
 
@@ -420,33 +351,31 @@ dialog.addEventListener('close', () => {
     closeDialog();
 });
 
-//functions to scroll through photo album
-function goBack() {
-    if (currentIndex > 0) {
-        currentIndex--;
-        render();
-    } else {
-        currentIndex = currentPictures.length - 1; // sets for-loop at the end
-        render();
-    }
-}
 
-function goForward() {
+//functions to scroll through photo album
+function goForward(event) {
+    event.stopPropagation();            // stops event-bubbling
     if (currentIndex < currentPictures.length - 1) {
         currentIndex++;
-        render();
     } else {
-        currentIndex = 0; // sets for-loop at beginning
-        render();
+        currentIndex = 0; 
     }
-
+    render();
 }
 
-//option to scroll through album via keyboard (arrow-keys):
-window.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') {
-      goForward();
-    } else if (event.key === 'ArrowLeft') {
-      goBack();
+function goBack(event) {
+    event.stopPropagation();
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = currentPictures.length - 1; 
     }
-});
+    render();
+}
+
+// creates gallery if page is loaded
+renderGallery();
+
+
+
+
