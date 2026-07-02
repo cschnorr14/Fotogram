@@ -247,6 +247,7 @@ const allPictures = [
     myImgsPeru, myImgsPanama, myImgsTaiwan, myImgsKanaren, myImgsMarokko
 ];
 
+
 //base states at beginning
 let currentPictures = []; //empty array to be filled with selected album
 
