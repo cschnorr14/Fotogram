@@ -247,7 +247,6 @@ const allPictures = [
     myImgsPeru, myImgsPanama, myImgsTaiwan, myImgsKanaren, myImgsMarokko
 ];
 
-
 //base states at beginning
 let currentPictures = []; //empty array to be filled with selected album
 
@@ -260,8 +259,6 @@ const nameAlbumTitle = document.getElementById("dialogTitle");
 const dialogIMG = document.getElementById("dialogIMG");
 
 const amountPictures = document.getElementById("amountPics");
-
-
 
 //to dynamically render index-page
 function renderGallery() {
@@ -298,13 +295,11 @@ function renderFiltered(index) {
     render(); 
 }
 
-
 //function to open dialog
 function openDialog() {
     dialogRef.showModal();
     dialogRef.classList.add("opened");
     document.body.classList.add("no-scroll"); /*added after first feedback to block scrolling while dialog is opened*/
-    
 }
 
 //function to close dialog
@@ -312,9 +307,7 @@ function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove("opened");
     document.body.classList.remove("no-scroll"); /*added after first feedback to "unblock" scrolling*/
-   
 }
-
 
 //function to load pictures of a certain album/array into dialog
 function render() {
@@ -324,7 +317,6 @@ function render() {
         amountPictures.innerHTML = `${currentIndex + 1} / ${currentPictures.length}`;
     }
 }
-
 
 //closes dialog if clicked on background (online research):
 dialog.addEventListener('click', (event) => {
@@ -346,12 +338,10 @@ dialog.addEventListener('click', (event) => {
 
 });
 
-
 //closes dialog when escape is pressed:
 dialog.addEventListener('close', () => {
     closeDialog();
 });
-
 
 //functions to scroll through photo album
 function goForward(event) {

@@ -9,13 +9,11 @@ html {
 
 body {
     display: block;
-    /*max-width: 1970px;*/
     width: 100%;
     margin: 0 auto;
     height: 100%;   /*adapted after first feedback to use full screen height*/
     background-color: #06171E;
     font-family: "Figtree";
-
 }
 
 .no-scroll {
@@ -29,7 +27,7 @@ header {
     top: 0px;
     display: flex;
     align-items: center;
-    padding-left: 135px;
+    /*padding-left: 135px;*/
 }
 
 .fotogram_logo {
@@ -38,6 +36,10 @@ header {
     width: 80px;
     padding-left: 0px;
     justify-content: flex-start;
+    /*padding: 0 30px;*/
+    max-width: 1970px;
+    /*margin: 0 auto;*/
+
 }
 
 .page_layout {      /*adapted after first feedback to use full screen height (since body display:block)*/
@@ -54,8 +56,8 @@ header {
     align-items: center;
     flex: 1 0 auto; /*adapted after first feedback to move footer to the end of the screen*/
     max-width: 1970px;
-    
-
+    margin: 0 auto; /*added after 3rd feedback*/
+    width: 100%;
 }
 
 .headline {
@@ -70,7 +72,6 @@ h1 {
     color: #FFFFFF;
     font-size: 56px;
     font-weight: 800;
-
 }
 
 .gallery {
@@ -87,9 +88,7 @@ h1 {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 30px; 
     justify-items: center; /*centers buttons within grid*/
-
 }
-
 
 .photo_button {
     width: 150px;
@@ -102,7 +101,6 @@ h1 {
     overflow: hidden;
 }
 
-
 .album {
     width: 100%;
     height: 100%;
@@ -114,7 +112,6 @@ h1 {
     cursor: pointer;
     transition: transform 0.2s ease;
 }
-
 
 footer {
     height: 128px;
@@ -135,8 +132,6 @@ dialog {
     display: none;
     transition-behavior: allow-discrete;
     padding: 0;
-
-
 }
 
 .header_dialog {
@@ -153,7 +148,6 @@ h2 {
     font-weight: 700;
     font-size: 24px;
     color: #FFFFFF;
-
 }
 
 .close_icon {
@@ -161,7 +155,6 @@ h2 {
     height: 24px;
     background-color: #09212A;
     color: #FFFFFF;
-
 }
 
 .arrow_icon {
@@ -180,7 +173,6 @@ button {
     border: none;
     background-color: #09212A;
     cursor: pointer;
-
 }
 
 .footer_dialog {
@@ -190,7 +182,6 @@ button {
     gap: 56px;
     font-size: 16px;
     font-weight: 500;
-
 }
 
 dialog.opened {
@@ -204,7 +195,6 @@ dialog.opened {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 
 dialog::backdrop {
     background-color: grey;
@@ -238,9 +228,7 @@ dialog.opened::backdrop {
     header {
         padding-left: 100px;
     }
-
 }
-
 
 @media(max-width: 1000px) {
 
@@ -252,10 +240,7 @@ dialog.opened::backdrop {
         padding-left: 0;
         justify-content: center;
     }
-
 }
-
-
 
 @media(max-width: 629px) {
 
@@ -280,11 +265,9 @@ dialog.opened::backdrop {
         width: 120px;
         height: 120px;
     }
-
 }
 
 @media(max-width: 500px) {
-
 
     h1 {
         font-size: 36px;
@@ -297,11 +280,7 @@ dialog.opened::backdrop {
     .main_section {
         padding-top: 40px;
     }
-
-
 }
-
-
 
 @media(max-width: 365px) {
 
@@ -316,9 +295,7 @@ dialog.opened::backdrop {
     .main_section {
         padding-top: 30px;
     }
-
 }
-
 
 /*responsive Design Dialog*/
 
@@ -327,8 +304,6 @@ dialog.opened::backdrop {
     dialog {
         height: 540px;
         width: 550px;
-
-
     }
 
     .header_dialog {
@@ -344,38 +319,28 @@ dialog.opened::backdrop {
         width: 550px;
         padding: 40px 0px 60px;
         margin-top: 30px;
-
-
     }
 
     h2 {
         font-size: 20px;
-
     }
 
     .arrow_icon {
         width: 50px;
         height: 50px;
-
     }
 
     .album_open {
         width: 460px;
         height: 275px;
     }
-
-
 }
-
-
 
 @media(max-width: 600px) {
 
     dialog {
         height: 390px;
         width: 400px;
-
-
     }
 
     .header_dialog {
@@ -388,13 +353,11 @@ dialog.opened::backdrop {
 
     h2 {
         font-size: 20px;
-
     }
 
     .arrow_icon {
         width: 40px;
         height: 40px;
-
     }
 
     .album_open {
@@ -407,19 +370,14 @@ dialog.opened::backdrop {
         width: 400px;
         padding: 40px 0px 50px;
         margin-top: 0px;
-
-
     }
-
 }
-
 
 @media(max-width: 450px) {
 
     dialog {
         height: 464px;
         width: 343px;
-
     }
 
     .album_open {
@@ -431,16 +389,13 @@ dialog.opened::backdrop {
 
         width: 343px;
         padding: 40px 0px 50px;
-
     }
-
 
     .header_dialog {
         height: 20px;
         width: 343px;
         margin-bottom: 30px;
     }
-
 }
 
 @media(max-width: 380px) {
@@ -448,7 +403,6 @@ dialog.opened::backdrop {
     dialog {
         height: 340px;
         width: 280px;
-
     }
 
     .header_dialog {
@@ -467,6 +421,5 @@ dialog.opened::backdrop {
 
         width: 280px;
         padding: 40px 0px 50px;
-
     }
 }
