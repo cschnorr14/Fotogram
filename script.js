@@ -240,7 +240,6 @@ const albumTitle = [
     "Marokko"
 ];
 
-//added after first feedback to make it dynamic
 const allPictures = [
     myImgsBike, myImgsTanzania, myImgsLaReunion, myImgsPatagonia, myImgsAntarctica,
     myImgsArgentina, myImgsBrasil, myImgsGalapagos, myImgsAtacama, myImgsBolivia,
@@ -248,9 +247,9 @@ const allPictures = [
 ];
 
 //base states at beginning
-let currentPictures = []; //empty array to be filled with selected album
+let currentPictures = [];
 
-let currentIndex = 0; //indicates which picture is recently shown
+let currentIndex = 0; 
 
 const dialogRef = document.getElementById("dialog");
 
@@ -270,7 +269,6 @@ function renderGallery() {
     // going through all albums
     for (let i = 0; i < allPictures.length; i++) {
         const currentAlbum = allPictures[i];
-        // first pic of each album is used as cover
         const coverBild = currentAlbum[0]; 
         const titel = albumTitle[i];
         
@@ -287,10 +285,10 @@ function renderGallery() {
     container.innerHTML = htmlContent;
 }
 
-// to find the correct album (without all the previous if-statements)
+// to find the correct album
 function renderFiltered(index) {
-    currentPictures = allPictures[index]; // according pic-array
-    nameAlbumTitle.innerHTML = albumTitle[index]; // according title
+    currentPictures = allPictures[index]; 
+    nameAlbumTitle.innerHTML = albumTitle[index]; 
     currentIndex = 0; 
     render(); 
 }
@@ -299,14 +297,14 @@ function renderFiltered(index) {
 function openDialog() {
     dialogRef.showModal();
     dialogRef.classList.add("opened");
-    document.body.classList.add("no-scroll"); /*added after first feedback to block scrolling while dialog is opened*/
+    document.body.classList.add("no-scroll"); 
 }
 
 //function to close dialog
 function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove("opened");
-    document.body.classList.remove("no-scroll"); /*added after first feedback to "unblock" scrolling*/
+    document.body.classList.remove("no-scroll"); 
 }
 
 //function to load pictures of a certain album/array into dialog
@@ -318,18 +316,15 @@ function render() {
     }
 }
 
-//closes dialog if clicked on background (online research):
+//closes dialog if clicked on background 
 dialog.addEventListener('click', (event) => {
-     const rect = dialog.getBoundingClientRect(); //measures exact size of dialog by saving the x/y-coordinates of the 4 dialog edges in pixel
-    //rect.left & rect.right = where left edge starts & right edge of dialog box ends
-    //rect.top & rect.bottom = where upper edge starts & lower edge ends of the dialog box
-    //event.clickX/Y uses x/y-coordinates of mouse click
+     const rect = dialog.getBoundingClientRect(); 
 
-     const isInDialog = (               //boolean which tests if click is within dialog
-    event.clientX >= rect.left &&       //tests if the click is right from the left edge?
-    event.clientX <= rect.right &&      //tests if the click is left from the right edge?
-    event.clientY >= rect.top &&        //tests if the click is below the upper edge?
-    event.clientY <= rect.bottom        //tests if the click is higher than the lower edge?
+     const isInDialog = (               
+    event.clientX >= rect.left &&       
+    event.clientX <= rect.right &&     
+    event.clientY >= rect.top &&        
+    event.clientY <= rect.bottom        
   );
 
   if(!isInDialog){
@@ -338,14 +333,14 @@ dialog.addEventListener('click', (event) => {
 
 });
 
-//closes dialog when escape is pressed:
+//closes dialog when escape is pressed
 dialog.addEventListener('close', () => {
     closeDialog();
 });
 
 //functions to scroll through photo album
 function goForward(event) {
-    event.stopPropagation();            // stops event-bubbling
+    event.stopPropagation();            
     if (currentIndex < currentPictures.length - 1) {
         currentIndex++;
     } else {

@@ -4,21 +4,20 @@
 }
 
 html {
-    height: 100%;   /*adapted after first feedback to use full screen height*/
+    height: 100%;   
 }
 
 body {
     display: block;
     width: 100%;
     margin: 0 auto;
-    height: 100%;   /*adapted after first feedback to use full screen height*/
+    height: 100%;   
     background-color: #06171E;
     font-family: "Figtree";
 }
 
 .no-scroll {
     overflow: hidden;
-    /*added after first feedback to block scrolling while dialog is opened*/
 }
 
 header {
@@ -27,22 +26,15 @@ header {
     top: 0px;
     display: flex;
     align-items: center;
-    /*padding-left: 135px;*/
 }
 
 .fotogram_logo {
     display: flex;
     height: 24px;
-    width: 80px;
-    padding-left: 0px;
     justify-content: flex-start;
-    /*padding: 0 30px;*/
-    max-width: 1970px;
-    /*margin: 0 auto;*/
-
 }
 
-.page_layout {      /*adapted after first feedback to use full screen height (since body display:block)*/
+.page_layout {      
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -54,9 +46,9 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 1 0 auto; /*adapted after first feedback to move footer to the end of the screen*/
+    flex: 1 0 auto; 
     max-width: 1970px;
-    margin: 0 auto; /*added after 3rd feedback*/
+    margin: 0 auto; 
     width: 100%;
 }
 
@@ -74,7 +66,7 @@ h1 {
     font-weight: 800;
 }
 
-.gallery {
+.gallery, .header_wrapper {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -84,10 +76,9 @@ h1 {
 /*new container filled with javascript*/
 #gallery-container{
     display: grid;
-    /* online researched: to fill one row with as many albums as possible*/
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 30px; 
-    justify-items: center; /*centers buttons within grid*/
+    justify-items: center; 
 }
 
 .photo_button {
@@ -97,7 +88,7 @@ h1 {
     /*margin-right: 50px;*/
     padding: 0;
     border: none;
-    background-color: transparent; /*to avoid visible border edges*/
+    background-color: transparent; 
     overflow: hidden;
 }
 
@@ -203,7 +194,6 @@ dialog::backdrop {
 }
 
 dialog.opened::backdrop {
-
     opacity: 0.5;
     transition: all 50ms ease-in;
 }
@@ -218,32 +208,28 @@ dialog.opened::backdrop {
 
 
 /*responsive design*/
-
 @media(max-width: 1280px) {
     .fotogram_logo {
-        padding-left: 0px;
+        /*padding-left: 50px;*/
         justify-content: center;
-    }
-
-    header {
-        padding-left: 100px;
     }
 }
 
 @media(max-width: 1000px) {
-
     footer {
         clip-path: ellipse(120% 100% at 50% 100%);
     }
 
     header {
-        padding-left: 0;
         justify-content: center;
+    }
+
+    .fotogram_logo{
+        padding-left: 0px;
     }
 }
 
 @media(max-width: 629px) {
-
     h1 {
         font-size: 42px;
     }
@@ -256,7 +242,6 @@ dialog.opened::backdrop {
         padding-top: 60px;
     }
 
-   
      #gallery-container {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 15px;
@@ -268,7 +253,6 @@ dialog.opened::backdrop {
 }
 
 @media(max-width: 500px) {
-
     h1 {
         font-size: 36px;
     }
@@ -283,7 +267,6 @@ dialog.opened::backdrop {
 }
 
 @media(max-width: 365px) {
-
     h1 {
         font-size: 30px;
     }
@@ -297,10 +280,8 @@ dialog.opened::backdrop {
     }
 }
 
-/*responsive Design Dialog*/
-
+/*responsive design dialog*/
 @media(max-width: 800px) {
-
     dialog {
         height: 540px;
         width: 550px;
@@ -337,7 +318,6 @@ dialog.opened::backdrop {
 }
 
 @media(max-width: 600px) {
-
     dialog {
         height: 390px;
         width: 400px;
@@ -374,7 +354,6 @@ dialog.opened::backdrop {
 }
 
 @media(max-width: 450px) {
-
     dialog {
         height: 464px;
         width: 343px;
@@ -399,7 +378,6 @@ dialog.opened::backdrop {
 }
 
 @media(max-width: 380px) {
-
     dialog {
         height: 340px;
         width: 280px;
@@ -418,7 +396,6 @@ dialog.opened::backdrop {
     }
 
     .footer_dialog {
-
         width: 280px;
         padding: 40px 0px 50px;
     }

@@ -7,17 +7,17 @@
     <title>Fotogram</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="./img/fav_icon.svg" />
-
 </head>
 
 <body>
     <div class="page_layout">
         <header>
+            <div class="header_wrapper">
             <div class="fotogram_logo">
                 <img src="./img/logo.svg" alt="logo">
                 <img src="./img/logo_text.svg" alt="title_logo">
             </div>
-
+            </div>
         </header>
 
         <section class="main_section">
@@ -25,12 +25,11 @@
                 <h1>Miles & Memories</h1>
             </div>
 
-           
             <div class="gallery">
                 <div id="gallery-container" class="gallery_grid"></div>
 
                 <!-- dialog-->
-                <dialog id="dialog" aria-labelledby="dialogTitle"> 
+                <dialog id="dialog" aria-labelledby="dialogTitle">
                     <section class="header_dialog">
                         <h2 id="dialogTitle">Albumtitel</h2>
                         <button aria-label="close dialog" onclick="closeDialog()">
@@ -39,9 +38,7 @@
                     </section>
 
                     <section>
-
                         <img class="album_open" id="dialogIMG" src="" alt="greaterViewOfPictures">
-
                     </section>
 
                     <footer class="footer_dialog">
@@ -49,24 +46,21 @@
                                 class="arrow_icon" src="./img/button_backward.png" alt="close_icon"></button>
                         <p id="amountPics"></p>
                         <button type="button" aria-label="dialog forward" onclick="goForward(event)"><img
-                                class="arrow_icon" src="./img/button_forward.png" alt="close_icon"></button>
-
+                                class="arrow_icon" src="./img/button_forward.png" alt="close_icon">
+                        </button>
                     </footer>
                 </dialog>
             </div>
-
 
         </section>
 
         <footer>
             <img src="./img/footer_logo.svg" alt="DA_Logo">
-
         </footer>
     </div>
 
     <script src="./script.js"></script>
-   
+
 </body>
 
 </html>
-
