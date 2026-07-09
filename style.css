@@ -206,7 +206,6 @@ dialog.opened::backdrop {
     font-style: normal;
 }
 
-
 /*responsive design*/
 @media(max-width: 1280px) {
     .fotogram_logo {
